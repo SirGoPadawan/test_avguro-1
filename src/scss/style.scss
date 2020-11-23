@@ -1,0 +1,712 @@
+@import "./normalize.css";
+@import "../fonts/fonts.css";
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "PTSans";
+}
+p,
+h1,
+h2,
+h3 {
+  padding: 0;
+  margin: 0;
+}
+body {
+  overflow-x: hidden;
+}
+@mixin d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 90%;
+  max-width: 1092px;
+  min-width: 819px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 12px;
+}
+.top,
+.bottom,
+.middle {
+  width: 100vw;
+  height: max-content;
+  position: relative;
+}
+.top,
+.bottom {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.top {
+  background-image: url("../static/background1.jpg");
+}
+.middle {
+  background-color: #ffffff;
+}
+.bottom {
+  background-image: url("../static/background2.jpg");
+}
+.title {
+  @include d-flex-center();
+  &-top {
+    margin-top: 107px;
+    margin-bottom: 52px;
+    color: #ffffff;
+    flex-direction: column;
+    grid-column: 3 / span 8;
+    text-align: center;
+    & > p {
+      font-size: 5em;
+      line-height: 78px;
+      letter-spacing: 4.5px;
+      font-weight: bold;
+    }
+  }
+  &-middle {
+    grid-column: 3 / span 8;
+    text-align: center;
+    margin-top: 55px;
+    margin-bottom: 80px;
+    font-size: 35px;
+    letter-spacing: 0.1px;
+  }
+  &-before {
+    grid-column: 4 / span 6;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 55px;
+    font-size: 35px;
+    letter-spacing: 0.2px;
+  }
+  &-bottom {
+    grid-column: 2 / span 10;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 86px;
+    font-size: 53px;
+    letter-spacing: 2px;
+    margin-bottom: 44px;
+  }
+}
+.dots {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 3%;
+  width: 14px;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  &_active {
+    background-color: #000000;
+    border: 1px solid #ffffff;
+  }
+}
+.form {
+  position: relative;
+  @include d-flex-center();
+  &-group {
+    position: relative;
+    height: 125px;
+    grid-column: 3 / span 8;
+    width: 100%;
+    justify-self: center;
+  }
+  &-input {
+    width: 100%;
+    padding: 25px 34px;
+    font-size: 26px;
+    background: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    z-index: 2;
+  }
+  &-message {
+    @include d-flex-center();
+    color: #ffffff;
+    padding: 16px 0;
+    letter-spacing: 0.35px;
+    border-radius: 0 0 5px 5px;
+    background-color: rgba(55, 59, 66, 0.9);
+    position: absolute;
+    width: 100%;
+    top: 74px;
+    z-index: 1;
+    text-align: center;
+    &__reg-domain {
+      color: #81b733;
+      &:hover {
+        color: #6a9f1d;
+      }
+    }
+  }
+}
+.active {
+  display: flex;
+}
+.disable {
+  display: none;
+}
+.btn {
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: #ffffff;
+  @include d-flex-center();
+  &-submit {
+    position: absolute;
+    background-color: #5f6062;
+    right: 15px;
+    top: 12px;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+    padding: 14px 25px;
+    z-index: 2;
+    &:hover {
+      background-color: #838485;
+    }
+  }
+  &-create-acc {
+    justify-self: center;
+    background-color: #81b733;
+    padding: 14px 46px;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    grid-column: 5 / span 4;
+    &:hover {
+      background-color: #6a9f1d;
+    }
+  }
+  &-top {
+    margin-top: 35px;
+  }
+  &-middle {
+    margin-top: 67px;
+    margin-bottom: 84px;
+  }
+  &-down {
+    margin-top: 138px;
+    grid-column: 6 / span 2;
+    padding: 0;
+    margin-bottom: 58px;
+    &::before {
+      content: url("../static/down.png");
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.logo {
+  &__svg {
+    stroke: none;
+    fill: #ffffff;
+    margin-right: 12px;
+    margin-top: 4px;
+    width: 65px;
+    height: 15px;
+  }
+
+  padding-top: 17px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+
+  &-after {
+    padding-top: 34px;
+    padding-left: 4px;
+    color: #ffffff;
+    grid-column: 6 / span 6;
+    & > p {
+      font-size: 13px;
+      letter-spacing: 1.6px;
+    }
+  }
+  grid-column: 1 / span 5;
+  &-middle {
+    & > svg {
+      stroke: none;
+      fill: #a5111f;
+    }
+    color: #000000;
+  }
+  &-middle,
+  &-bottom {
+    margin-top: 7px;
+  }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-description {
+    grid-column: 1 / span 12;
+    margin-top: 29px;
+    border: 2px solid #afafb0;
+    border-radius: 10px;
+    padding: 22px 42px;
+    line-height: 19px;
+    margin-bottom: 35px;
+    position: relative;
+    background-color: #f7f7f7;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 10.5%;
+      top: -33px;
+      border: 16px solid transparent;
+      border-bottom: 16px solid #afafb0;
+    }
+    &::after {
+      top: -30px;
+      border-bottom: 16px solid #f7f7f7;
+    }
+    &__text {
+      font-weight: bold;
+    }
+  }
+  &-1,
+  &-5 {
+    grid-column: 1 / span 3;
+  }
+  &-2,
+  &-6 {
+    grid-column: 4 / span 3;
+  }
+  &-3,
+  &-7 {
+    grid-column: 7 / span 3;
+  }
+  &-4,
+  &-8 {
+    grid-column: 10 / span 3;
+  }
+  & > p {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 18px;
+    text-align: center;
+    width: 100%;
+  }
+  &__svg {
+    width: 64px;
+    height: 64px;
+  }
+}
+.points,
+.address {
+  grid-column: 1 / span 12;
+  color: #ffffff;
+}
+.points {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d13b5a;
+  border-radius: 10px;
+  margin-top: 54px;
+  height: 112px;
+  padding: 18px 40px;
+  &__text {
+    font-size: 22px;
+    width: 75%;
+  }
+  &__link {
+    font-size: 22px;
+    color: #ffffff;
+  }
+  &__span {
+    display: flex;
+    align-items: center;
+    & > span {
+      font-size: 46px;
+      font-weight: bold;
+      letter-spacing: 7px;
+      padding: 10px 0;
+      padding-left: 32px;
+      border-left: 2px solid #da627b;
+    }
+    & > svg {
+      width: 32px;
+      height: 32px;
+      fill: #ffffff;
+      stroke: #ffffff;
+    }
+  }
+}
+.address {
+  opacity: 0.6;
+  margin-top: 50px;
+  margin-bottom: 53px;
+  font-size: 14px;
+  font-style: normal;
+  & > a {
+    color: #ffffff;
+    font-size: 14px;
+  }
+}
+//для IE11
+.logo,
+.logo-after {
+  -ms-grid-row: 1;
+}
+.title {
+  &-middle,
+  &-before {
+    -ms-grid-row: 2;
+  }
+  &-top,
+  &-bottom {
+    -ms-grid-row: 3;
+  }
+}
+.card {
+  &-1,
+  &-2,
+  &-3,
+  &-4 {
+    -ms-grid-row: 3;
+  }
+  &-5,
+  &-6,
+  &-7,
+  &-8 {
+    -ms-grid-row: 5;
+  }
+}
+.btn-bottom,
+.card-description,
+.form-group {
+  -ms-grid-row: 4;
+}
+.btn-top,
+.points {
+  -ms-grid-row: 5;
+}
+.address,
+.btn-middle,
+.btn-down {
+  -ms-grid-row: 6;
+}
+@media screen and (max-width: 920px) {
+  .card-description {
+    padding: 22px 20px;
+    width: 90%;
+    justify-self: center;
+    &::before,
+    &::after {
+      left: 5.5%;
+    }
+  }
+}
+@media screen and (max-width: 859px) {
+  .container {
+    min-width: auto;
+    width: calc(100% - 40px);
+  }
+}
+@media screen and (max-width: 800px) {
+  .title {
+    & > p {
+      font-size: 3em;
+      line-height: 50px;
+    }
+    &-middle,
+    &-before {
+      font-size: 28px;
+    }
+    &-bottom {
+      font-size: 35px;
+    }
+  }
+  .btn {
+    &-down {
+      margin-top: 55px;
+      margin-bottom: 40px;
+    }
+    &-acc {
+      padding: 14px 25px;
+    }
+    &-middle {
+      margin-top: 35px;
+      margin-bottom: 50px;
+    }
+  }
+  .card {
+    & > p {
+      font-size: 16px;
+    }
+    &__svg {
+      width: 50px;
+      height: 50px;
+    }
+    &-description {
+      padding: 22px 19px;
+      &__text {
+        font-size: 13px;
+      }
+    }
+  }
+  .points {
+    padding: 10px 20px;
+    &__text,
+    &__link {
+      font-size: 15px;
+    }
+    &__span {
+      & > span {
+        font-size: 28px;
+      }
+      & > svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  .address {
+    font-size: 12px;
+    & > a {
+      font-size: 12px;
+    }
+  }
+  .dots {
+    right: 2%;
+    width: 14px;
+    height: 55px;
+  }
+  .circle {
+    width: 11px;
+    height: 11px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .form {
+    &-input {
+      font-size: 23px;
+    }
+    &-message {
+      & span,
+      & a {
+        font-size: 12px;
+      }
+    }
+  }
+  .btn {
+    &-submit {
+      top: 15px;
+      font-size: 14px;
+    }
+    &-create-acc {
+      font-size: 15px;
+    }
+  }
+  .title {
+    &-top {
+      margin-top: 52px;
+      & > p {
+        font-size: 2em;
+      }
+    }
+    &-bottom {
+      font-size: 28px;
+      margin-top: 36px;
+    }
+    &-middle,
+    &-before {
+      font-size: 23px;
+    }
+  }
+  .points__span > span {
+    letter-spacing: 5px;
+    padding-left: 16px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .logo {
+    &__svg {
+      width: 55px;
+    }
+    &__text {
+      font-size: 12px;
+    }
+    &-after {
+      font-size: 13px;
+    }
+  }
+  .title {
+    &-top {
+      & > p {
+        font-size: 1.5em;
+        line-height: 20px;
+      }
+    }
+    &-middle,
+    &-before {
+      font-size: 16px;
+    }
+    &-middle {
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+    &-bottom {
+      font-size: 20px;
+    }
+  }
+  .form {
+    &-group {
+      height: 85px;
+    }
+    &-input {
+      padding: 12px 17px;
+      font-size: 1em;
+    }
+    &-message {
+      top: 40px;
+    }
+  }
+  .btn {
+    &-submit {
+      top: 9px;
+      right: 8px;
+      padding: 4px 8px;
+    }
+    &-create-acc {
+      font-size: 11px;
+      font-weight: 100;
+      padding: 10px 10px;
+    }
+    &-down {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+    &-middle {
+      margin-top: 18px;
+      margin-bottom: 18px;
+    }
+  }
+  .card {
+    &__svg {
+      width: 30px;
+      height: 30px;
+    }
+    & > p {
+      padding-top: 10px;
+      font-size: 11px;
+      font-weight: 100;
+    }
+    &-description {
+      margin-top: 6px;
+      margin-bottom: 6px;
+      line-height: 16px;
+      border-width: 1px;
+      &__text {
+        font-size: 11px;
+        font-weight: 100;
+      }
+      &::before,
+      &::after {
+        left: 4.5%;
+        top: -22px;
+        border: 9px solid transparent;
+        border-bottom: 13px solid #afafb0;
+      }
+      &::after {
+        top: -21px;
+        border-bottom: 14px solid #f7f7f7;
+      }
+    }
+  }
+  .points {
+    height: 75px;
+    &__text,
+    &__link {
+      font-size: 11px;
+    }
+    &__span {
+      & > span {
+        font-size: 22px;
+      }
+      & > svg {
+        width: 11px;
+        height: 11px;
+      }
+    }
+  }
+  .address {
+    font-size: 11px;
+    text-align: justify;
+  }
+  .dots {
+    right: 1%;
+    width: 10px;
+    height: 40px;
+  }
+  .circle {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .logo-after {
+    font-size: 10px;
+    padding-top: 22px;
+  }
+  .title-top > p {
+    font-size: 1em;
+    letter-spacing: normal;
+    line-height: 6px;
+  }
+  .form-input {
+    font-size: 12px;
+  }
+  .btn-submit {
+    padding: 3px 3px;
+    font-size: 11px;
+  }
+  .form-message {
+    top: 30px;
+  }
+  .form-message span,
+  .form-message a {
+    font-size: 10px;
+  }
+  .points__span > span {
+    letter-spacing: 3px;
+    padding-left: 4px;
+    font-size: 18px;
+  }
+  .points {
+    padding: 10px 6px;
+    height: 60px;
+  }
+  .address {
+    opacity: 0.6;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+  .card-description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 19px;
+  }
+}
